@@ -234,6 +234,16 @@ gmf.Themes.prototype.getBgLayers = function() {
         // Continue even if some layers have failed loading.
         return $q.resolve(undefined);
       });
+    } else if (item['type'] === 'WMS') {
+      var params = {'localid': -1, 'floor': 99, 'lang': 'fr'}; // FIXME: don't merge this XXX
+      item['dimensions'] = params; // FIXME: bglayermgr checks the dimensions attribute
+      return callback(item, layerHelper.createBasicWMSLayer(
+          item['url'],
+          item['layers'],
+          item['serverType'],
+          undefined,
+          params
+      ));
     }
   };
 
@@ -255,7 +265,7 @@ gmf.Themes.prototype.getBgLayers = function() {
   var promiseSuccessFn = function(data) {
     var promises = data['background_layers'].map(function(item) {
       var itemType = item['type'];
-      if (itemType === 'WMTS') {
+      if (itemType === 'WMTS' || itemType === 'WMS') {
         return layerLayerCreationFn(item);
       } else if (item['children']) {
         // group of layers
