@@ -27,13 +27,13 @@ goog.require('ol.Map');
 goog.require('ol.source.Vector');
 
 
-goog.require('ngeo.search.searchModule');
-goog.require('ngeo.import.importModule');
+//goog.require('ngeo.search.searchModule');
+//goog.require('ngeo.import.importModule');
 
 /** @type {!angular.Module} */
 ngeo.module = angular.module('ngeo', [
-  ngeo.search.searchModule.module.name,
-  ngeo.import.importModule.module.name,
+  //ngeo.search.searchModule.module.name,
+  //ngeo.import.importModule.module.name,
   'gettext', 'ui.date', 'floatThead'
 ]);
 
