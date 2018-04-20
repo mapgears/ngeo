@@ -22,7 +22,7 @@ goog.require('ol.Map');
 
 
 /** @type {!angular.Module} */
-ngeo.module = angular.module('ngeo', ['gettext', 'ui.date', 'floatThead']);
+//ngeo.module = angular.module('ngeo', ['gettext', 'ui.date', 'floatThead']);
 
 
 /**
